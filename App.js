@@ -127,7 +127,7 @@ const Registrar= ({navigation})=> {
           onChangeText={onChange}
           value={value}
           style={{marginTop:10}}
-
+          left={<TextInput.Icon icon="account" />}
         />
       )}
       name="username"
@@ -150,7 +150,7 @@ const Registrar= ({navigation})=> {
           onChangeText={onChange}
           value={value}
           style={{marginTop:10}}
-          
+          left={<TextInput.Icon icon="nature-people" />}
         />
       )}
       name="name"
@@ -179,6 +179,7 @@ const Registrar= ({navigation})=> {
           value={value}
           style={{marginTop:10}}
           secureTextEntry
+          left={<TextInput.Icon icon="key" />}
        
         />
       )}
@@ -205,6 +206,7 @@ const Registrar= ({navigation})=> {
           value={value}
           style={{marginTop:10}}
           secureTextEntry
+          left={<TextInput.Icon icon="key" />}
         />
       )}
       name="passwordRep"
@@ -215,7 +217,7 @@ const Registrar= ({navigation})=> {
 
         {/* */}
 
-    <Button buttonColor='orange' textColor='white' style={{marginTop:10,width:250,fontSize:15}}  mode="contained" title="Submit" icon='car-convertible' onPress={handleSubmit(onSubmit)}> Enviar </Button>
+    <Button buttonColor='orange' textColor='white' style={{marginTop:10,width:280,fontSize:15}}  mode="contained" title="Submit" icon='car-convertible' onPress={handleSubmit(onSubmit)}> Enviar </Button>
   </View>
   )
 }
@@ -244,7 +246,7 @@ const onSubmit = data =>{
   else{
     setErrorMessage('Usuario y/o contraseña inválido (s)')
   }
-  console.log(data)
+
 }
 
 
@@ -270,7 +272,8 @@ return (
           onChangeText={onChange}
           value={value}
           style={{marginTop:10}}
-          icon='nature-people'
+          left={<TextInput.Icon icon="account" />}
+          
         />
       )}
       name="username"
@@ -295,6 +298,7 @@ return (
           value={value}
           secureTextEntry
           style={{marginTop:10}}
+          left={<TextInput.Icon icon="key" />}
         />
       )}
       name="password"
@@ -402,7 +406,7 @@ const RentScreen= ({navigation})=> {
 
    return(
        <View style={styles.container}>
-        <Text style={{color:'black',fontSize:20,fontWeight:'bold',textTransform:'uppercase'}}>Renta un Auto</Text>
+        <Text style={{color:'black',fontSize:20,fontWeight:'bold',textTransform:'uppercase',marginTop:10,marginBottom:10}}>Renta un Auto</Text>
      <Text style={{color:'red',fontSize:12,fontWeight:'bold',textTransform:'uppercase'}}>{errormessage}</Text>
 
         {/*Rent Number*/}
@@ -419,6 +423,8 @@ const RentScreen= ({navigation})=> {
            onBlur={onBlur}
            onChangeText={onChange}
            value={value}
+           left={<TextInput.Icon icon="car-info" />}
+           style={{marginTop:10}}
          />
        )}
        name="rentNumber"
@@ -445,6 +451,8 @@ const RentScreen= ({navigation})=> {
            onBlur={onBlur}
            onChangeText={onChange}
            value={value}
+           left={<TextInput.Icon icon="account" />}
+           style={{marginTop:10}}
          />
        )}
        name="username"
@@ -469,7 +477,8 @@ const RentScreen= ({navigation})=> {
            onBlur={onBlur}
            onChangeText={onChange}
            value={value}
-           
+           left={<TextInput.Icon icon="license" />}
+           style={{marginTop:10}}
          />
        )}
        name="plateNumber"
@@ -488,7 +497,8 @@ const RentScreen= ({navigation})=> {
          }}
          render={({ field: { onChange, onBlur, value } }) => (
 
-     <View>
+     <View 
+     style={{marginTop:10}}>
      <SafeAreaProvider>
      <DatePickerInput
        locale="es"
@@ -507,7 +517,7 @@ const RentScreen= ({navigation})=> {
 
 
 
-     <Button buttonColor='black' style={{marginTop:10}}  mode="contained" title="Submit" onPress={handleSubmit(onSubmit)}> Enviar </Button>
+     <Button buttonColor='black' textColor='white' style={{marginTop:10,width:270,fontSize:15}}  mode="contained" title="Submit" icon="car-pickup" onPress={handleSubmit(onSubmit)}> Enviar </Button>
    </View>
    )
   }
@@ -555,6 +565,7 @@ const CarScreen=({navigation})=>{
   return(
 
     <View style={styles.container}>
+    <Text style={{color:'black',fontSize:20,fontWeight:'bold',marginBottom:15,marginTop:10}}>Agrega o Consulta Vehículos</Text>
     <Text style={{color:'red',fontSize:20,fontWeight:'bold'}}>{errormessage}</Text>
     <Controller
       control={control}
@@ -570,6 +581,8 @@ const CarScreen=({navigation})=>{
           onBlur={onBlur}
           onChangeText={onChange}
           value={value}
+          left={<TextInput.Icon icon="license" />}
+          style={{marginTop:10}}
         />
       )}
       name="platenumber"
@@ -592,7 +605,9 @@ const CarScreen=({navigation})=>{
           onBlur={onBlur}
           onChangeText={onChange}
           value={value}
-          
+          left={<TextInput.Icon icon="factory" />}
+          style={{marginTop:10}}
+
         />
       )}
       name="brand"
@@ -601,9 +616,9 @@ const CarScreen=({navigation})=>{
      {errors.brand?.type==="pattern" && <Text>La Marca solo permite letras</Text>}
  
 
-    <Button buttonColor='black' style={{marginTop:10}}  mode="contained" title="Submit" onPress={handleSubmit(onSubmit)}> GUARDAR</Button>
+    <Button buttonColor='black' textColor='white' style={{marginTop:10,width:270,textTransform:'capitalize',fontSize:15}}  mode="contained" title="Submit" icon='car-limousine' onPress={handleSubmit(onSubmit)}> Guardar</Button>
 
-    <Button style={{marginTop:10}} onPress={()=>{navigation.navigate('ListCar')}} buttonColor='orange' icon="pencil">Lista de Autos</Button>
+    <Button style={{marginTop:10,width:270,textTransform:'capitalize',fontSize:15}} onPress={()=>{navigation.navigate('ListCar')}} buttonColor='orange' textColor='white' icon="format-list-text">Lista de Autos</Button>
   </View>
   )
 }
@@ -627,7 +642,7 @@ const ListCar=()=>{
   return(
 
     <View style={styles.container}>
-    <Text>Seleccione los carros que desea consultar</Text>
+    <Text style={{fontSize:20,fontWeight:'bold',textTransform:'capitalize'}}>Seleccione los carros que desea consultar</Text>
 
       <FlatList 
         data={listaCarros}
@@ -638,8 +653,9 @@ const ListCar=()=>{
   
     
     
-    <Button textColor='white'  style={{fontSize:12,marginTop:10}}  mode='outlined' buttonColor='green' onPress={mostrarDisponibles}>Disponible</Button>
-    <Button textColor='white'  style={{fontSize:12,marginTop:10}} mode='outlined' buttonColor='red' onPress={mostrarNoDisponibles}>No Disponible</Button>
+    <Button textColor='white'  style={{fontSize:15,marginTop:10,width:270}}  mode='outlined' buttonColor='orange' icon="car-door" onPress={mostrarDisponibles}>Disponible</Button>
+    
+    <Button textColor='white' icon="car-door-lock"  style={{fontSize:15,marginTop:10,width:270}} mode='outlined' buttonColor='black' onPress={mostrarNoDisponibles}>No Disponible</Button>
     </View>
 
 
@@ -669,16 +685,16 @@ function HomeTabs() {
 
         }}
       >
-        <Tab.Screen name="Login" component={LoginScreen} options={{
+        <Tab.Screen  name="Login" component={LoginScreen} options={{
           tabBarStyle:{display:'none'},
-          tabBarIcon: (tabInfo) => (<MaterialCommunityIcons name="close" size={25} />)
+          tabBarIcon: (tabInfo) => (<MaterialCommunityIcons color='black' name="close" size={25} />)
         }} />
-        <Tab.Screen name="RentScreen" component={RentScreen} options={{
-          tabBarIcon: (tabInfo) => (<MaterialCommunityIcons name="cash" size={25} />)
+        <Tab.Screen  name="RentScreen" component={RentScreen} options={{
+          tabBarIcon: (tabInfo) => (<MaterialCommunityIcons color='black' name="cash" size={25} />)
         }} />
-        <Tab.Screen name="CarScreen" component={CarScreen}
+        <Tab.Screen   name="CarScreen" component={CarScreen}
           options={{
-            tabBarIcon: (tabInfo) => (<MaterialCommunityIcons name="car" size={25} />)
+            tabBarIcon: (tabInfo) => (<MaterialCommunityIcons  color='black' name="car" size={25} />)
           }} />
       </Tab.Navigator>
 
